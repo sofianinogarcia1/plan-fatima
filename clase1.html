@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 1 - Así soy yo | Español para Fátima</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a2a3a;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tarjetas */
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #1a5276;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 5px solid #f0b429;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin: 20px 0 15px 0;
+            font-size: 1.3rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .time-box {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 20px;
+            border-left: 4px solid #f0b429;
+        }
+
+        .time-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a5276;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-time {
+            background: #f0b429;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .roleplay-box {
+            background: #e8f4f8;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px dashed #1a5276;
+        }
+
+        .correccion-ejemplo {
+            background: #fef9e8;
+            padding: 15px;
+            border-radius: 16px;
+            margin: 15px 0;
+        }
+
+        .frase-mala {
+            color: #c0392b;
+            text-decoration: line-through;
+        }
+
+        .frase-buena {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        button {
+            background: #1a5276;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #2c3e50;
+        }
+
+        .temporizador {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a5276;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .vocabulario-item {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 6px 14px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Cabecera -->
+    <div style="text-align: center; margin-bottom: 25px;">
+        <h1>🌟 Clase 1: Así soy yo</h1>
+        <p style="color: white; font-size: 1.1rem;">50 minutos · Presentación + rutina diaria</p>
+    </div>
+
+    <!-- Estructura de la clase -->
+    <div class="card">
+        <h2>📋 Estructura de la clase (50 min)</h2>
+        <div class="grid-2">
+            <div class="time-box">
+                <div class="time-title"><span class="badge-time">⏱️ 5 min</span> Calentamiento</div>
+                <p>Preguntas muy simples para activar el español:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>¿Cómo estás?</li>
+                    <li>¿De dónde eres?</li>
+                    <li>¿Qué hora es en Azerbaiyán?</li>
+                    <li>¿Cómo está el clima hoy?</li>
+                </ul>
+                <p style="margin-top: 10px; background: #e9ecef; padding: 8px; border-radius: 12px;">💡 <strong>Tip:</strong> Escribe sus respuestas en el chat. No corrijas aún.</p>
+            </div>
+
+            <div class="time-box">
+                <div class="time-title"><span class="badge-time">⏱️ 10 min</span> Input nuevo</div>
+                <p><strong>Verbos de rutina:</strong></p>
+                <div>
+                    <span class="vocabulario-item">despertarse</span>
+                    <span class="vocabulario-item">trabajar</span>
+                    <span class="vocabulario-item">estudiar</span>
+                    <span class="vocabulario-item">comer</span>
+                    <span class="vocabulario-item">descansar</span>
+                    <span class="vocabulario-item">ver series</span>
+                    <span class="vocabulario-item">salir con amigos</span>
+                </div>
+                <p style="margin-top: 12px;"><strong>Ejemplo:</strong> <em>Yo me despierto a las 8, trabajo desde casa, por la noche veo series.</em></p>
+            </div>
+
+            <div class="time-box">
+                <div class="time-title"><span class="badge-time">⏱️ 15 min</span> Práctica guiada</div>
+                <p><strong>Entrevista personal:</strong> Tú preguntas, ella responde.</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>¿A qué hora te despiertas normalmente?</li>
+                    <li>¿Trabajas o estudias?</li>
+                    <li>¿Qué haces en la tarde?</li>
+                    <li>¿Qué haces en tu tiempo libre?</li>
+                    <li>¿Ves series? ¿Cuál te gusta?</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>🎯 Objetivo:</strong> Que ella hable al menos 1 minuto seguido.</p>
+            </div>
+
+            <div class="time-box">
+                <div class="time-title"><span class="badge-time">⏱️ 15 min</span> Role-play</div>
+                <p><strong>Situación:</strong> "Eres nueva en un grupo de amigos hispanohablantes. Preséntate y cuenta cómo es tu día normal".</p>
+                <div class="roleplay-box">
+                    <strong>🎭 Tú haces de:</strong> Amiga mexicana o argentina (elige uno)<br>
+                    <strong>🗣️ Ella se presenta y tú reaccionas con entusiasmo.</strong>
+                </div>
+            </div>
+
+            <div class="time-box">
+                <div class="time-title"><span class="badge-time">⏱️ 5 min</span> Feedback + tarea</div>
+                <p><strong>Corrección amable (técnica del eco):</strong></p>
+                <div class="correccion-ejemplo">
+                    <p>❌ Ella dice: <em>"Yo <span class="frase-mala">se despierto</span> a las 9"</em></p>
+                    <p>✅ Tú dices: <em>"Ah, <span class="frase-buena">te despiertas</span> a las 9. ¿Y desayunas algo rico?"</em></p>
+                </div>
+                <p><strong>✅ Tarea para la clase 2:</strong> Ver capítulo 1 de <em>Extra en español</em> (YouTube) y anotar 3 verbos que entendió.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guión rápido para la profe -->
+    <div class="card">
+        <h2>🎯 Guión rápido para la profe</h2>
+        <div class="grid-2">
+            <div>
+                <h3>🗣️ Frases para el calentamiento</h3>
+                <ul style="margin-left: 20px;">
+                    <li>"Hola Fátima, ¿cómo estás hoy?"</li>
+                    <li>"Cuéntame, ¿cómo está el clima en Azerbaiyán?"</li>
+                    <li>"¿Tuviste una semana tranquila?"</li>
+                </ul>
+            </div>
+            <div>
+                <h3>✅ Correcciones prioridad (solo 2 errores por clase)</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Error #1:</strong> "Yo se despierto" → "Yo <strong>me</strong> despierto"</li>
+                    <li><strong>Error #2:</strong> "Yo comer" → "Yo <strong>como</strong>" (conjugación)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="roleplay-box" style="margin-top: 15px;">
+            <strong>💬 Role-play completo (5-7 minutos):</strong><br>
+            <strong>Tú:</strong> "Oye Fátima, te presento a mis amigos. Cuéntales de ti."<br>
+            <strong>Ella:</strong> [se presenta, habla de su rutina]<br>
+            <strong>Tú:</strong> "¿Y qué haces los fines de semana?"<br>
+            <strong>Ella:</strong> [responde]<br>
+            <strong>Tú:</strong> "¡Qué chido! ¿Y ves alguna serie?"<br>
+            <strong>Ella:</strong> [responde]
+        </div>
+    </div>
+
+    <!-- Materiales visuales -->
+    <div class="card">
+        <h2>🖼️ Material visual para compartir pantalla</h2>
+        <div class="grid-2">
+            <div>
+                <h3>🕐 Horarios de rutina</h3>
+                <p>Puedes dibujar una línea de tiempo simple:</p>
+                <pre style="background:#f0f0f0; padding:10px; border-radius:12px;">
+7:00  →  Me despierto
+8:00  →  Desayuno
+9:00  →  Trabajo / estudio
+13:00 →  Como
+18:00 →  Descanso / series
+22:00 →  Ceno
+                </pre>
+            </div>
+            <div>
+                <h3>📝 Verbos conjugados (presente)</h3>
+                <table style="width:100%; background:#f8f9fa; border-radius:12px;">
+                    <tr><th>Yo</th><td>me despierto</td><td>trabajo</td><td>como</td></tr>
+                    <tr><th>Tú</th><td>te despiertas</td><td>trabajas</td><td>comes</td></tr>
+                    <tr><th>Ella</th><td>se despierta</td><td>trabaja</td><td>come</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checklist para la profe -->
+    <div class="card">
+        <h2>✅ Checklist antes de la clase</h2>
+        <div class="grid-2">
+            <div>
+                <input type="checkbox" id="c1"> <label for="c1"> Preparar 3-5 preguntas personales para el calentamiento</label><br>
+                <input type="checkbox" id="c2"> <label for="c2"> Tener lista la pizarra (chat de Preply o Google Docs)</label><br>
+                <input type="checkbox" id="c3"> <label for="c3"> Elegir 1 imagen o slide para vocabulario nuevo</label><br>
+                <input type="checkbox" id="c4"> <label for="c4"> Decidir SOLO 2 errores que corregirás</label>
+            </div>
+            <div>
+                <input type="checkbox" id="c5"> <label for="c5"> Preparar el role-play (tú harás de "amiga")</label><br>
+                <input type="checkbox" id="c6"> <label for="c6"> Pensar la tarea de 5-10 minutos</label><br>
+                <input type="checkbox" id="c7"> <label for="c7"> Sonreír mentalmente: lo importante es que ella hable más que tú</label>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        🌟 Recuerda: ¡Fátima necesita sentirse segura! Cada pequeño intento es un gran logro.
+    </footer>
+</div>
+
+<!-- Temporizador interactivo -->
+<div class="temporizador" id="timer">
+    ⏱️ 50:00
+</div>
+
+<script>
+    let tiempoRestante = 50 * 60; // 50 minutos en segundos
+    let timerActivo = false;
+    let intervalo;
+    const timerDisplay = document.getElementById('timer');
+
+    function formatearTiempo(segundos) {
+        const mins = Math.floor(segundos / 60);
+        const segs = segundos % 60;
+        return `${mins.toString().padStart(2, '0')}:${segs.toString().padStart(2, '0')}`;
+    }
+
+    function actualizarTimer() {
+        timerDisplay.textContent = `⏱️ ${formatearTiempo(tiempoRestante)}`;
+        if (tiempoRestante <= 0) {
+            clearInterval(intervalo);
+            timerActivo = false;
+            timerDisplay.textContent = '✅ ¡Clase finalizada!';
+            timerDisplay.style.background = '#27ae60';
+        }
+    }
+
+    function iniciarTimer() {
+        if (timerActivo) return;
+        timerActivo = true;
+        intervalo = setInterval(() => {
+            if (tiempoRestante > 0) {
+                tiempoRestante--;
+                actualizarTimer();
+            } else {
+                clearInterval(intervalo);
+                timerActivo = false;
+            }
+        }, 1000);
+    }
+
+    function resetearTimer() {
+        clearInterval(intervalo);
+        timerActivo = false;
+        tiempoRestante = 50 * 60;
+        actualizarTimer();
+        timerDisplay.style.background = '#1a5276';
+    }
+
+    timerDisplay.addEventListener('click', () => {
+        if (timerActivo) {
+            clearInterval(intervalo);
+            timerActivo = false;
+        } else {
+            iniciarTimer();
+        }
+    });
+
+    timerDisplay.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        resetearTimer();
+    });
+
+    actualizarTimer();
+</script>
+</body>
+</html>
