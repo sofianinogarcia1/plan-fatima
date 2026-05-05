@@ -90,6 +90,14 @@
             accent-color: #27ae60;
         }
 
+        input[type="text"] {
+            padding: 6px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            width: 100%;
+        }
+
         .clase-card {
             background: #fef9e8;
             border-left: 5px solid #f0b429;
@@ -200,6 +208,19 @@
             margin-left: 10px;
         }
 
+        .mensaje-guardado {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: none;
+            z-index: 1000;
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
@@ -247,29 +268,36 @@
     <div class="card">
         <h2>✅ Seguimiento de clases</h2>
         <table id="tablaSeguimiento">
-            <thead><tr><th>Clase</th><th>Fecha</th><th>¿Asistió?</th><th>¿Tarea?</th><th>Notas</th></tr></thead>
+            <thead>
+                <tr><th>Clase</th><th>Fecha</th><th>¿Asistió?</th><th>¿Tarea?</th><th>Notas</th></tr>
+            </thead>
             <tbody>
-                <tr><td>1</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>2</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>3</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>4</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>5</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>6</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>7</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
-                <tr><td>8</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td><input type="checkbox" class="asis"></td><td><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>1</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>2</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>3</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>4</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>5</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>6</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>7</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
+                <tr><td>8</td><td><input type="text" class="fecha" placeholder="dd/mm"></td><td style="text-align:center"><input type="checkbox" class="asis"></td><td style="text-align:center"><input type="checkbox" class="tarea"></td><td><input type="text" class="nota-corta" placeholder="..." style="width:100%"></td></tr>
             </tbody>
         </table>
     </div>
 
     <div class="card">
         <h2>🏆 Registro de logros</h2>
-        <table id="tablaLogros">
-            <thead><tr><th>Habilidad</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead>
+        <table id="tablaLogros" class="check-table">
+            <thead>
+                <tr><th style="text-align:left">Habilidad</th><th>Clase 1</th><th>Clase 2</th><th>Clase 3</th><th>Clase 4</th><th>Clase 5</th><th>Clase 6</th><th>Clase 7</th><th>Clase 8</th></tr>
+            </thead>
             <tbody>
-                <tr><td>Se presenta sola</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-                <tr><td>Habla de su rutina</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-                <tr><td>Usa "voy a" (futuro)</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
-                <tr><td>Usa "he" (pasado)</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td style="text-align:left">Se presenta con confianza</td><td><input type="checkbox" class="logro logro-1-1"></td><td><input type="checkbox" class="logro logro-1-2"></td><td><input type="checkbox" class="logro logro-1-3"></td><td><input type="checkbox" class="logro logro-1-4"></td><td><input type="checkbox" class="logro logro-1-5"></td><td><input type="checkbox" class="logro logro-1-6"></td><td><input type="checkbox" class="logro logro-1-7"></td><td><input type="checkbox" class="logro logro-1-8"></td></tr>
+                <tr><td style="text-align:left">Habla de su rutina</td><td><input type="checkbox" class="logro logro-2-1"></td><td><input type="checkbox" class="logro logro-2-2"></td><td><input type="checkbox" class="logro logro-2-3"></td><td><input type="checkbox" class="logro logro-2-4"></td><td><input type="checkbox" class="logro logro-2-5"></td><td><input type="checkbox" class="logro logro-2-6"></td><td><input type="checkbox" class="logro logro-2-7"></td><td><input type="checkbox" class="logro logro-2-8"></td></tr>
+                <tr><td style="text-align:left">Expresa gustos y opiniones</td><td><input type="checkbox" class="logro logro-3-1"></td><td><input type="checkbox" class="logro logro-3-2"></td><td><input type="checkbox" class="logro logro-3-3"></td><td><input type="checkbox" class="logro logro-3-4"></td><td><input type="checkbox" class="logro logro-3-5"></td><td><input type="checkbox" class="logro logro-3-6"></td><td><input type="checkbox" class="logro logro-3-7"></td><td><input type="checkbox" class="logro logro-3-8"></td></tr>
+                <tr><td style="text-align:left">Usa "voy a" (futuro)</td><td><input type="checkbox" class="logro logro-4-1"></td><td><input type="checkbox" class="logro logro-4-2"></td><td><input type="checkbox" class="logro logro-4-3"></td><td><input type="checkbox" class="logro logro-4-4"></td><td><input type="checkbox" class="logro logro-4-5"></td><td><input type="checkbox" class="logro logro-4-6"></td><td><input type="checkbox" class="logro logro-4-7"></td><td><input type="checkbox" class="logro logro-4-8"></td></tr>
+                <tr><td style="text-align:left">Usa "he" (pasado reciente)</td><td><input type="checkbox" class="logro logro-5-1"></td><td><input type="checkbox" class="logro logro-5-2"></td><td><input type="checkbox" class="logro logro-5-3"></td><td><input type="checkbox" class="logro logro-5-4"></td><td><input type="checkbox" class="logro logro-5-5"></td><td><input type="checkbox" class="logro logro-5-6"></td><td><input type="checkbox" class="logro logro-5-7"></td><td><input type="checkbox" class="logro logro-5-8"></td></tr>
+                <tr><td style="text-align:left">Entiende diferencias de acentos</td><td><input type="checkbox" class="logro logro-6-1"></td><td><input type="checkbox" class="logro logro-6-2"></td><td><input type="checkbox" class="logro logro-6-3"></td><td><input type="checkbox" class="logro logro-6-4"></td><td><input type="checkbox" class="logro logro-6-5"></td><td><input type="checkbox" class="logro logro-6-6"></td><td><input type="checkbox" class="logro logro-6-7"></td><td><input type="checkbox" class="logro logro-6-8"></td></tr>
+                <tr><td style="text-align:left">Conversación fluida (+5 intercambios)</td><td><input type="checkbox" class="logro logro-7-1"></td><td><input type="checkbox" class="logro logro-7-2"></td><td><input type="checkbox" class="logro logro-7-3"></td><td><input type="checkbox" class="logro logro-7-4"></td><td><input type="checkbox" class="logro logro-7-5"></td><td><input type="checkbox" class="logro logro-7-6"></td><td><input type="checkbox" class="logro logro-7-7"></td><td><input type="checkbox" class="logro logro-7-8"></td></tr>
             </tbody>
         </table>
     </div>
@@ -291,116 +319,132 @@
     <div class="card">
         <h2>🎵 Materiales por clase</h2>
         <div class="material-list">
-            <div class="material-badge"><strong>Clase 1</strong> Extra en español - Cap.1</div>
-            <div class="material-badge"><strong>Clase 2</strong> Tití me preguntó - Bad Bunny</div>
-            <div class="material-badge"><strong>Clase 3</strong> Escribir 3 planes con "voy a"</div>
-            <div class="material-badge"><strong>Clase 4</strong> Club de Cuervos (5 min)</div>
-            <div class="material-badge"><strong>Clase 5</strong> 3 diferencias Colombia vs España</div>
-            <div class="material-badge"><strong>Clase 6</strong> Reel influencer mexicano + argentino</div>
-            <div class="material-badge"><strong>Clase 7</strong> Podcast opcional</div>
-            <div class="material-badge"><strong>Clase 8</strong> Hawái - Maluma</div>
+            <div class="material-badge"><strong>Clase 1</strong> 📺 Extra en español - Cap.1</div>
+            <div class="material-badge"><strong>Clase 2</strong> 🎵 Tití me preguntó - Bad Bunny</div>
+            <div class="material-badge"><strong>Clase 3</strong> ✍️ Escribir 3 planes con "voy a"</div>
+            <div class="material-badge"><strong>Clase 4</strong> 📺 Club de Cuervos (5 min)</div>
+            <div class="material-badge"><strong>Clase 5</strong> 🔍 3 diferencias Colombia vs España</div>
+            <div class="material-badge"><strong>Clase 6</strong> 📱 Reel influencer mexicano + argentino</div>
+            <div class="material-badge"><strong>Clase 7</strong> 🎙️ Podcast opcional</div>
+            <div class="material-badge"><strong>Clase 8</strong> 🎵 Hawái - Maluma</div>
         </div>
     </div>
 
     <footer>
-        📍 Los datos se guardan automáticamente en tu navegador · Haz clic en "Guardar progreso" después de cada clase
+        📍 Los datos se guardan en tu navegador · Haz clic en "Guardar progreso" después de cada clase
     </footer>
 </div>
 
+<div id="mensajeGuardado" class="mensaje-guardado">✅ Progreso guardado</div>
+
 <script>
-    // Guardar todo en localStorage
-    function guardarTodo() {
-        // Guardar checkboxes y textos de la tabla de seguimiento
-        const asistencias = document.querySelectorAll('#tablaSeguimiento .asis');
-        const tareas = document.querySelectorAll('#tablaSeguimiento .tarea');
-        const fechas = document.querySelectorAll('#tablaSeguimiento .fecha');
-        const notasCortas = document.querySelectorAll('#tablaSeguimiento .nota-corta');
-        
-        let seguimientoData = [];
-        for (let i = 0; i < asistencias.length; i++) {
-            seguimientoData.push({
-                asistio: asistencias[i].checked,
-                tarea: tareas[i].checked,
-                fecha: fechas[i].value,
-                notaCorta: notasCortas[i].value
-            });
-        }
-        localStorage.setItem('seguimiento', JSON.stringify(seguimientoData));
-        
-        // Guardar tabla de logros
-        const logrosCheckboxes = document.querySelectorAll('#tablaLogros input[type="checkbox"]');
-        let logrosData = [];
-        logrosCheckboxes.forEach(cb => {
-            logrosData.push(cb.checked);
-        });
-        localStorage.setItem('logros', JSON.stringify(logrosData));
-        
-        // Guardar notas largas
-        const notasLargas = document.querySelectorAll('.nota-larga');
-        let notasData = [];
-        notasLargas.forEach(textarea => {
-            notasData.push(textarea.value);
-        });
-        localStorage.setItem('notasLargas', JSON.stringify(notasData));
-        
-        alert('✅ Progreso guardado correctamente');
+    function mostrarMensaje() {
+        const msg = document.getElementById('mensajeGuardado');
+        msg.style.display = 'block';
+        setTimeout(() => {
+            msg.style.display = 'none';
+        }, 2000);
     }
-    
-    // Cargar todo desde localStorage
-    function cargarTodo() {
-        // Cargar seguimiento
-        const seguimientoGuardado = localStorage.getItem('seguimiento');
-        if (seguimientoGuardado) {
-            const seguimientoData = JSON.parse(seguimientoGuardado);
+
+    function guardarTodo() {
+        try {
+            // 1. Guardar tabla de seguimiento
             const asistencias = document.querySelectorAll('#tablaSeguimiento .asis');
             const tareas = document.querySelectorAll('#tablaSeguimiento .tarea');
             const fechas = document.querySelectorAll('#tablaSeguimiento .fecha');
             const notasCortas = document.querySelectorAll('#tablaSeguimiento .nota-corta');
             
-            for (let i = 0; i < seguimientoData.length && i < asistencias.length; i++) {
-                asistencias[i].checked = seguimientoData[i].asistio;
-                tareas[i].checked = seguimientoData[i].tarea;
-                fechas[i].value = seguimientoData[i].fecha || '';
-                notasCortas[i].value = seguimientoData[i].notaCorta || '';
+            let seguimientoData = [];
+            for (let i = 0; i < asistencias.length; i++) {
+                seguimientoData.push({
+                    asistio: asistencias[i].checked,
+                    tarea: tareas[i].checked,
+                    fecha: fechas[i].value,
+                    notaCorta: notasCortas[i].value
+                });
             }
-        }
-        
-        // Cargar logros
-        const logrosGuardados = localStorage.getItem('logros');
-        if (logrosGuardados) {
-            const logrosData = JSON.parse(logrosGuardados);
-            const logrosCheckboxes = document.querySelectorAll('#tablaLogros input[type="checkbox"]');
-            for (let i = 0; i < logrosData.length && i < logrosCheckboxes.length; i++) {
-                logrosCheckboxes[i].checked = logrosData[i];
-            }
-        }
-        
-        // Cargar notas largas
-        const notasGuardadas = localStorage.getItem('notasLargas');
-        if (notasGuardadas) {
-            const notasData = JSON.parse(notasGuardadas);
+            localStorage.setItem('seguimiento_fatima', JSON.stringify(seguimientoData));
+            
+            // 2. Guardar logros (todos los checkboxes con clase "logro")
+            const logros = document.querySelectorAll('#tablaLogros .logro');
+            let logrosData = [];
+            logros.forEach(cb => {
+                logrosData.push(cb.checked);
+            });
+            localStorage.setItem('logros_fatima', JSON.stringify(logrosData));
+            
+            // 3. Guardar notas largas
             const notasLargas = document.querySelectorAll('.nota-larga');
-            for (let i = 0; i < notasData.length && i < notasLargas.length; i++) {
-                notasLargas[i].value = notasData[i];
-            }
+            let notasData = [];
+            notasLargas.forEach(textarea => {
+                notasData.push(textarea.value);
+            });
+            localStorage.setItem('notas_fatima', JSON.stringify(notasData));
+            
+            mostrarMensaje();
+        } catch(e) {
+            alert('Error al guardar: ' + e.message);
         }
     }
     
-    // Reiniciar todo
+    function cargarTodo() {
+        try {
+            // Cargar seguimiento
+            const seguimientoGuardado = localStorage.getItem('seguimiento_fatima');
+            if (seguimientoGuardado) {
+                const seguimientoData = JSON.parse(seguimientoGuardado);
+                const asistencias = document.querySelectorAll('#tablaSeguimiento .asis');
+                const tareas = document.querySelectorAll('#tablaSeguimiento .tarea');
+                const fechas = document.querySelectorAll('#tablaSeguimiento .fecha');
+                const notasCortas = document.querySelectorAll('#tablaSeguimiento .nota-corta');
+                
+                for (let i = 0; i < seguimientoData.length && i < asistencias.length; i++) {
+                    asistencias[i].checked = seguimientoData[i].asistio === true;
+                    tareas[i].checked = seguimientoData[i].tarea === true;
+                    fechas[i].value = seguimientoData[i].fecha || '';
+                    notasCortas[i].value = seguimientoData[i].notaCorta || '';
+                }
+            }
+            
+            // Cargar logros
+            const logrosGuardados = localStorage.getItem('logros_fatima');
+            if (logrosGuardados) {
+                const logrosData = JSON.parse(logrosGuardados);
+                const logros = document.querySelectorAll('#tablaLogros .logro');
+                for (let i = 0; i < logrosData.length && i < logros.length; i++) {
+                    logros[i].checked = logrosData[i] === true;
+                }
+            }
+            
+            // Cargar notas largas
+            const notasGuardadas = localStorage.getItem('notas_fatima');
+            if (notasGuardadas) {
+                const notasData = JSON.parse(notasGuardadas);
+                const notasLargas = document.querySelectorAll('.nota-larga');
+                for (let i = 0; i < notasData.length && i < notasLargas.length; i++) {
+                    notasLargas[i].value = notasData[i] || '';
+                }
+            }
+        } catch(e) {
+            console.log('Error al cargar:', e);
+        }
+    }
+    
     function resetearTodo() {
-        if (confirm('¿Estás segura? Esto borrará TODO el progreso guardado.')) {
-            localStorage.clear();
+        if (confirm('⚠️ ¿Estás segura? Esto BORRARÁ todo el progreso guardado de Fátima. No se puede deshacer.')) {
+            localStorage.removeItem('seguimiento_fatima');
+            localStorage.removeItem('logros_fatima');
+            localStorage.removeItem('notas_fatima');
             location.reload();
         }
     }
     
-    // Guardado automático cada 30 segundos (opcional)
+    // Guardado automático cada 30 segundos
     setInterval(() => {
         guardarTodo();
-        console.log('💾 Guardado automático');
     }, 30000);
     
-    // Cargar datos cuando se abre la página
+    // Cargar datos al abrir la página
     cargarTodo();
 </script>
 </body>
