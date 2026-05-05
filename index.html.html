@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Estudio - Español para Fátima</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
+            color: #1a2a3a;
+            padding: 40px 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Tarjeta principal */
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #2c3e50, #1a5276);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            color: #5d7a8c;
+            border-bottom: 3px solid #f0b429;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #1a5276;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 5px solid #f0b429;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 20px 0 15px 0;
+        }
+
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background: #1a5276;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e0e7ed;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Tabla de logros (checkboxes) */
+        .check-table th, .check-table td {
+            text-align: center;
+        }
+
+        .check-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #27ae60;
+        }
+
+        /* Clases individuales */
+        .clase-card {
+            background: #fef9e8;
+            border-left: 5px solid #f0b429;
+            margin-bottom: 20px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            transition: all 0.2s;
+        }
+
+        .clase-card:hover {
+            background: #fff6e0;
+            transform: translateX(5px);
+        }
+
+        .clase-titulo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1a5276;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #f0b429;
+            color: #1a2a3a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 12px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #1a5276;
+        }
+
+        /* Materiales */
+        .material-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .material-badge {
+            background: #e9ecef;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .material-badge strong {
+            color: #1a5276;
+        }
+
+        /* Notas */
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+            margin-top: 8px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #f0b429;
+            box-shadow: 0 0 0 3px rgba(240,180,41,0.2);
+        }
+
+        /* Progreso */
+        .progress-container {
+            background: #e9ecef;
+            border-radius: 30px;
+            height: 12px;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            border-radius: 30px;
+            height: 12px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* Botones y utilidades */
+        .btn-print {
+            background: #1a5276;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background 0.2s;
+        }
+
+        .btn-print:hover {
+            background: #2c3e50;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+            }
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .clase-titulo {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .btn-print {
+                display: none;
+            }
+            .card {
+                box-shadow: none;
+                padding: 10px;
+                break-inside: avoid;
+            }
+            .clase-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
+
+    <!-- Título principal -->
+    <div class="card" style="text-align: center; background: linear-gradient(135deg, #1a5276, #2c3e50); color: white;">
+        <h1 style="color: white; background: none;">📘 Plan de Estudio - Español para Fátima</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9;">8 clases conversacionales · Nivel A1 → A2</p>
+        <p style="margin-top: 15px;">🎯 Objetivo: Conversación fluida · Vivir en España · Confianza al hablar</p>
+    </div>
+
+    <!-- PARTE 1: PERFIL -->
+    <div class="card">
+        <h2>👩‍🎓 Perfil de la Estudiante</h2>
+        <table>
+            <tr><th style="width: 35%;">Campo</th><th>Información</th></tr>
+            <tr><td><strong>Nombre</strong></td><td>Fátima</td></tr>
+            <tr><td><strong>Edad</strong></td><td>22 años · Colombia</td></tr>
+            <tr><td><strong>Nivel actual</strong></td><td>Entre A1 y A2 (sabe básico, no maneja pasado ni futuro)</td></tr>
+            <tr><td><strong>Objetivo principal</strong></td><td>Conversación fluida con amigos · Vivir en España · DELE (futuro)</td></tr>
+            <tr><td><strong>Motivaciones</strong></td><td>Reguetón · Series · Amigos mexicanos y argentinos</td></tr>
+            <tr><td><strong>Ritmo</strong></td><td>1 clase/semana · 50 min · 8 clases compradas</td></tr>
+            <tr><td><strong>Horario</strong></td><td>Noches Colombia / tardes profe</td></tr>
+            <tr><td><strong>Puntos fuertes</strong></td><td>Disposición, motivación, input auténtico (música/series)</td></tr>
+            <tr><td><strong>Puntos débiles</strong></td><td>Inseguridad · No sabe pasado ni futuro</td></tr>
+            <tr><td><strong>Preferencias</strong></td><td>Mucha práctica · Mucha corrección · Material extra</td></tr>
+            <tr><td><strong>Estudios previos</strong></td><td>Curso básico de español</td></tr>
+        </table>
+    </div>
+
+    <!-- PARTE 2: TABLA RESUMEN -->
+    <div class="card">
+        <h2>📊 Resumen de las 8 Clases</h2>
+        <table>
+            <thead>
+                <tr><th>Clase</th><th>Título</th><th>Estructura gramatical</th><th>Tema principal</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Así soy yo</td><td>Presente de indicativo</td><td>Presentación + rutina diaria</td></tr>
+                <tr><td>2</td><td>Mis gustos y pasiones</td><td>Gustar / encantar + porque</td><td>Música, series, comida</td></tr>
+                <tr><td>3</td><td>Planes para el fin de semana</td><td>Ir a + infinitivo</td><td>Futuro cercano</td></tr>
+                <tr><td>4</td><td>Ayer y hoy</td><td>Pretérito perfecto (he + participio)</td><td>Experiencias recientes</td></tr>
+                <tr><td>5</td><td>Un día en España</td><td>Repaso presente + futuro + he</td><td>Comparación Colombia-España</td></tr>
+                <tr><td>6</td><td>Amigos mexicanos y argentinos</td><td>Reconocer voseo y mexicanismos</td><td>Variedades del español</td></tr>
+                <tr><td>7</td><td>Repaso y conversación libre</td><td>Mezcla de tiempos</td><td>Conversación no estructurada</td></tr>
+                <tr><td>8</td><td>Evaluación y celebración</td><td>Todo lo visto</td><td>Mini monólogo + plan a futuro</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PARTE 3: DESGLOSE DE CADA CLASE -->
+    <div class="card">
+        <h2>📖 Desglose detallado de cada clase</h2>
+        
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 1</span> Así soy yo</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Presentarse + 3 actividades diarias</div><div class="info-item"><span class="info-label">📚 Gramática:</span> Presente (verbos regulares)</div><div class="info-item"><span class="info-label">🗣️ Role-play:</span> Nueva en grupo de amigos</div></div><div class="grid-3"><div class="info-item"><span class="info-label">⏱️ Calentamiento:</span> ¿Cómo estás? ¿De dónde eres?</div><div class="info-item"><span class="info-label">✍️ Práctica:</span> Entrevista: rutina diaria</div><div class="info-item"><span class="info-label">✅ Tarea:</span> Ver Extra en español cap.1</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 2</span> Mis gustos y pasiones</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Expresar gustos y preguntar a otros</div><div class="info-item"><span class="info-label">📚 Gramática:</span> Gustar, encantar, preferir + porque</div><div class="info-item"><span class="info-label">🗣️ Mini debate:</span> Bad Bunny vs Karol G</div></div><div class="grid-3"><div class="info-item"><span class="info-label">🎵 Canción:</span> Tití me preguntó - Bad Bunny</div><div class="info-item"><span class="info-label">✍️ Práctica:</span> ¿Qué te gusta? ¿Y a tus amigos?</div><div class="info-item"><span class="info-label">✅ Tarea:</span> Anotar 3 frases de la canción</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 3</span> Planes para el fin de semana</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Hablar de planes inmediatos</div><div class="info-item"><span class="info-label">📚 Gramática:</span> Ir a + infinitivo (voy a ver, voy a comer)</div><div class="info-item"><span class="info-label">🗣️ Role-play:</span> Dos amigas planean el sábado</div></div><div class="grid-3"><div class="info-item"><span class="info-label">✍️ Práctica:</span> ¿Qué vas a hacer este fin de semana?</div><div class="info-item"><span class="info-label">✅ Tarea:</span> Escribir 3 planes con "voy a"</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 4</span> Ayer y hoy</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Primer contacto con el pasado</div><div class="info-item"><span class="info-label">📚 Gramática:</span> Pretérito perfecto (he comido, he visto)</div><div class="info-item"><span class="info-label">🎲 Juego:</span> "Nunca he..."</div></div><div class="grid-3"><div class="info-item"><span class="info-label">✍️ Práctica:</span> ¿Qué has hecho esta semana?</div><div class="info-item"><span class="info-label">✅ Tarea:</span> Ver 5' de Club de Cuervos, anotar 2 frases con "he"</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 5</span> Un día en España</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Comparar culturas</div><div class="info-item"><span class="info-label">🌍 Cultura:</span> Horarios, palabras diferentes (auto/coche)</div><div class="info-item"><span class="info-label">🗣️ Role-play:</span> Entrevista para vivir en España</div></div><div class="grid-3"><div class="info-item"><span class="info-label">✍️ Práctica:</span> En Colombia se come arepa, en España...</div><div class="info-item"><span class="info-label">✅ Tarea:</span> Buscar 3 diferencias Colombia vs España</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 6</span> Amigos mexicanos y argentinos</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Reconocer variantes del español</div><div class="info-item"><span class="info-label">🇲🇽🇦🇷 Input:</span> Mexicanismos (chido, órale) / Voseo (vos tenés)</div><div class="info-item"><span class="info-label">🗣️ Role-play:</span> Amiga mexicana + Amigo argentino</div></div><div class="grid-3"><div class="info-item"><span class="info-label">✅ Tarea:</span> Ver reel de influencer mexicano y uno argentino, anotar 1 palabra diferente</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 7</span> Repaso y conversación libre</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Fluidez en conversación no estructurada</div><div class="info-item"><span class="info-label">🎲 Repaso:</span> Juego de preguntas rápidas</div><div class="info-item"><span class="info-label">💬 Conversación:</span> Temas elegidos por ella</div></div><div class="grid-3"><div class="info-item"><span class="info-label">📝 Feedback:</span> Los 3 errores más comunes</div><div class="info-item"><span class="info-label">✅ Tarea especial:</span> Mini monólogo para la clase 8</div></div></div>
+
+        <div class="clase-card"><div class="clase-titulo"><span class="badge">Clase 8</span> Evaluación y celebración</div><div class="grid-3"><div class="info-item"><span class="info-label">🎯 Objetivo:</span> Celebrar progreso y planificar futuro</div><div class="info-item"><span class="info-label">🎤 Presentación:</span> Mini monólogo de 1-2 minutos</div><div class="info-item"><span class="info-label">🏆 Evaluación:</span> Marcar logros juntas</div></div><div class="grid-3"><div class="info-item"><span class="info-label">📌 Plan a futuro:</span> Recomendaciones para llegar a B1</div><div class="info-item"><span class="info-label">🎁 Certificado:</span> Experta en conversación básica</div></div></div>
+    </div>
+
+    <!-- PARTE 4: MATERIALES POR CLASE -->
+    <div class="card">
+        <h2>🎵 Materiales adicionales ordenados por clase</h2>
+        <div class="material-list">
+            <div class="material-badge"><strong>Clase 1 📺</strong> Extra en español - Cap.1 (YouTube)</div>
+            <div class="material-badge"><strong>Clase 2 🎵</strong> Tití me preguntó - Bad Bunny</div>
+            <div class="material-badge"><strong>Clase 3 ✍️</strong> Escribir 3 planes con "voy a"</div>
+            <div class="material-badge"><strong>Clase 4 📺</strong> Club de Cuervos (5 min)</div>
+            <div class="material-badge"><strong>Clase 5 🔍</strong> Buscar 3 diferencias Colombia vs España</div>
+            <div class="material-badge"><strong>Clase 6 📱</strong> Reel influencer mexicano + argentino</div>
+            <div class="material-badge"><strong>Clase 7 🎙️</strong> (Opcional) Duolingo Spanish Podcast</div>
+            <div class="material-badge"><strong>Clase 8 🎵</strong> Hawái - Maluma</div>
+        </div>
+        <div style="margin-top: 15px; padding: 12px; background: #eef2fa; border-radius: 16px;">
+            <strong>📦 Material complementario:</strong> La casa de las flores (Netflix) · Somos tú y yo (YouTube) · Spanish with Vicente (YouTube)
+        </div>
+    </div>
+
+    <!-- PARTE 5: TABLA DE SEGUIMIENTO -->
+    <div class="card">
+        <h2>✅ Seguimiento de clases</h2>
+        <table>
+            <thead><tr><th>Clase</th><th>Fecha</th><th>¿Lista?</th><th>Asistió</th><th>Tarea</th><th>Notas</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>2</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>3</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>4</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>5</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>6</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>7</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+                <tr><td>8</td><td>____/____</td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td style="text-align:center"><input type="checkbox"></td><td><input type="text" style="width:100%; border:1px solid #ccc; border-radius:8px; padding:4px;"></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TABLA DE LOGROS CON CHECKBOX -->
+    <div class="card">
+        <h2>🏆 Registro de logros</h2>
+        <table class="check-table">
+            <thead><tr><th>Habilidad</th><th>Clase 1</th><th>Clase 2</th><th>Clase 3</th><th>Clase 4</th><th>Clase 5</th><th>Clase 6</th><th>Clase 7</th><th>Clase 8</th></tr></thead>
+            <tbody>
+                <tr><td>Se presenta sin ayuda</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td>Habla de su rutina</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td>Expresa gustos</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td>Usa "voy a" para futuro</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td>Usa "he" para pasado</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td>Conversación fluida (5+ intercambios)</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- NOTAS GENERALES -->
+    <div class="card">
+        <h2>📝 Mis notas por clase</h2>
+        <div><strong>Clase 1:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 2:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 3:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 4:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 5:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 6:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 7:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+        <div><strong>Clase 8:</strong> <textarea rows="2" placeholder="Escribe aquí tus observaciones..."></textarea></div>
+    </div>
+
+    <!-- MENSAJE FINAL -->
+    <div class="card" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); text-align: center;">
+        <p>🎉 <strong>¡Tú puedes, profe!</strong> Recuerda: lo más importante es que Fátima hable más que tú. Cada pequeño logro es un gran paso hacia su meta de vivir en España.</p>
+        <p style="margin-top: 10px;">✨ Técnica de corrección: usa el <strong>eco reformulado</strong> (ella dice "yo comer pizza ayer" → tú dices "ah, ¿comiste pizza ayer? ¡Qué rico!")</p>
+    </div>
+
+    <footer>
+        📍 Plan diseñado especialmente para Fátima · Preply · Conversación desde el día 1
+    </footer>
+</div>
+</body>
+</html>
